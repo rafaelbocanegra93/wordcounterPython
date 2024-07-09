@@ -3,14 +3,15 @@ from collections import Counter
 
 # Lee el archivo .txt
 file_path = 'text.txt'
-df = pd.read_csv(file_path, header=None, names=['frase'])
+with open(file_path, 'r') as file:
+    parrafos = file.readlines()
 
-# Obtén la frase
-frase = df['frase'][0]
+# Une todos los párrafos en un solo texto
+texto_completo = ' '.join(parrafos)
 
 # Cuenta el número de caracteres
-num_caracteres = len(frase)
-palabras = frase.split()
+num_caracteres = len(texto_completo)
+palabras = texto_completo.split()
 # Cuenta el número de palabras
 num_palabras = len(palabras)
 
